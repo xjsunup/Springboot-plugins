@@ -1,0 +1,13 @@
+server:
+  port: 6677
+
+swagger2:
+  title: swagger自动配置
+  description: springboot2.0.4集成swagger2demo
+  companyUrl: http://www.baidu.com
+  author: xuejian.sun
+  seeMoreAt: http://www.baidu.com
+  contactEmail: sxjjio@163.com
+  version: 1.0
+  apiBasePackage: com.xj.plugins.controller
+
