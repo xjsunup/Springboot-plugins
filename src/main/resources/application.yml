@@ -1,5 +1,7 @@
 server:
-  port: 6677
+  port: 8080
+
+
 
 swagger2:
   title: swagger自动配置
@@ -10,4 +12,8 @@ swagger2:
   contactEmail: sxjjio@163.com
   version: 1.0
   apiBasePackage: com.xj.plugins.controller
+spring:
+  jersey:
+    application-path: /api
+
 

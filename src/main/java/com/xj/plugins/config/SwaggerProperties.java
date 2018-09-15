@@ -1,14 +1,21 @@
 package com.xj.plugins.config;
 
+import com.xj.plugins.JerseyConfiguration;
 import lombok.Data;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author xuejian.sun
  * @date 2018/9/7
  */
 @Data
+@AutoConfigureBefore(JerseyConfiguration.class)
+@Configuration
 @ConfigurationProperties(prefix = "swagger2")
+@EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerProperties {
     /**
      * 标题

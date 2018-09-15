@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.xj.plugins.config.Swagger2Configuration
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#com.xj.plugins.config.Swagger2Configuration

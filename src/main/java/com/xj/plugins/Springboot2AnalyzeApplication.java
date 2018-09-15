@@ -2,9 +2,10 @@ package com.xj.plugins;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.context.annotation.ComponentScan;
 
-@EnableSwagger2
+//@EnableSwagger2
+@ComponentScan
 @SpringBootApplication
 public class Springboot2AnalyzeApplication {
 
