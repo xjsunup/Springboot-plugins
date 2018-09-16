@@ -12,8 +12,12 @@ swagger2:
   contactEmail: sxjjio@163.com
   version: 1.0
   apiBasePackage: com.xj.plugins.controller
+
 spring:
   jersey:
     application-path: /api
 
+jersey:
+  swagger:
+    enable: true
 
