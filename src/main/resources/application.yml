@@ -1,7 +1,5 @@
 server:
-  port: 8080
-
-
+  port: 6677
 
 swagger2:
   title: swagger自动配置

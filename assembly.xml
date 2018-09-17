@@ -5,10 +5,13 @@
     <formats>
         <format>tar.gz</format>
     </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
     <fileSets>
         <fileSet>
             <directory>${project.basedir}/src/main/resources</directory>
-            <outputDirectory>/config</outputDirectory>
+            <outputDirectory>/conf</outputDirectory>
             <includes>
                 <include>*.yml</include>
             </includes>
