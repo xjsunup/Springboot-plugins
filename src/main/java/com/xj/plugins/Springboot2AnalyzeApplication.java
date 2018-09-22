@@ -2,14 +2,22 @@ package com.xj.plugins;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.ComponentScan;
 
 //@EnableSwagger2
 @ComponentScan
 @SpringBootApplication
-public class Springboot2AnalyzeApplication {
+public class Springboot2AnalyzeApplication{
 
     public static void main(String[] args) {
         SpringApplication.run(Springboot2AnalyzeApplication.class, args);
+    }
+
+
+    public ConfigurableServletWebServerFactory configurableServletWebServerFactory(){
+        TomcatServletWebServerFactory tomcatServletWebServerFactory = new TomcatServletWebServerFactory();
+        return tomcatServletWebServerFactory;
     }
 }

@@ -1,6 +1,8 @@
 server:
   port: 6677
 
+
+
 swagger2:
   title: swagger自动配置
   description: springboot2.0.4集成swagger2demo
@@ -14,8 +16,13 @@ swagger2:
 spring:
   jersey:
     application-path: /api
+  resources:
+    static-locations: classpath:/static/**
+  application:
+    name: jersey swagger
 
 jersey:
   swagger:
     enable: true
+
 
