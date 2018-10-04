@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot2_analyze</artifactId>
+        <groupId>com.xj.plugins</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <flyway.db.dirver />
+        <flyway.db.user />
+        <flyway.db.password />
+        <flyway.db.url />
+        <!--<flyway.location />-->
+    </properties>
+
+    <artifactId>db-manager</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <configuration>
+                    <driver>${flyway.db.dirver}</driver>
+                    <url>${flyway.db.url}</url>
+                    <user>${flyway.db.user}</user>
+                    <password>${flyway.db.password}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>flyway_test</id>
+            <properties>
+                <flyway.db.dirver>com.mysql.jdbc.Driver</flyway.db.dirver>
+                <flyway.db.user>flyway</flyway.db.user>
+                <flyway.db.password>flyway_123456</flyway.db.password>
+                <flyway.db.url>jdbc:mysql://192.168.1.9:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</flyway.db.url>
+                <!--<flyway.location>classpath:db/migration/</flyway.location>-->
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

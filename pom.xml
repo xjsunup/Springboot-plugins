@@ -6,7 +6,11 @@
     <groupId>com.xj.plugins</groupId>
     <artifactId>springboot2_analyze</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>jersey-web</module>
+        <module>db-manager</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>springboot2_analyze</name>
     <description>Demo project for Spring Boot</description>
@@ -24,20 +28,23 @@
         <java.version>1.8</java.version>
     </properties>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.12</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jersey</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -110,7 +117,7 @@
                     <finalName>SpringBoot-plugins</finalName>
                     <outputDirectory>${basedir}/target</outputDirectory>
                     <descriptors>
-                        <descriptor>${basedir}/assembly.xml</descriptor>
+                        <descriptor>jersey-web/assembly.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>
