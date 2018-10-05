@@ -8,8 +8,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FlywayConfiguration {
 
-//    @Bean
-//    public Flyway flyway(){
-//        DriverMana
-//    }
 }

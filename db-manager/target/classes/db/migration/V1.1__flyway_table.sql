@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `falyway_test`;
 CREATE TABLE `falyway_test` (
-  `id` varchar(52) NOT NULL COMMENT '主键',
+  `id` varchar(50) NOT NULL COMMENT '主键',
   `change` varchar(50) NOT NULL COMMENT '改变',
   `name` varchar(50) NOT NULL COMMENT '名字',
   `description` char(8) NOT NULL COMMENT '描述',
