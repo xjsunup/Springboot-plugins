@@ -50,7 +50,7 @@ validate: check一些连接信息
 migrate: 数据库升级操作
 ```
 参数传递参考以下图片
-![Image reference](https://github.com/sunxuejian/Springboot-plugins/edit/master/db-manager/start.png)
+![Image reference](start.png)
 
  ---
 
