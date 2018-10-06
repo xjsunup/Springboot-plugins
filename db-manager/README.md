@@ -52,6 +52,9 @@ migrate: 数据库升级操作
 参数传递参考以下图片
 ![Image reference](start.png)
 
+配置文件参考图：
+![Image application的参考配置](properties.png)
+
  ---
 
 ## flyway maven的使用
