@@ -1,0 +1,1 @@
+INSERT INTO test.falyway_test (id, name, description) VALUES ('1', 'xj', 'test data');

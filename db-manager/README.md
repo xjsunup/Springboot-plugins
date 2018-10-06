@@ -49,6 +49,9 @@ clean: 清除当前数据库的所有配置
 validate: check一些连接信息
 migrate: 数据库升级操作
 ```
+参数传递参考以下图片
+![image][start.png]
+
  ---
 
 ## flyway maven的使用

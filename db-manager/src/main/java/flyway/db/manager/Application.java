@@ -30,17 +30,14 @@ public class Application implements CommandLineRunner {
             FlywayCommand.printCommand();
             return;
         }
-        if(args.length != 1){
-            log.error("参数不正确，无法进行数据库操作");
-            FlywayCommand.printCommand();
-            return;
+        for(String arg : args){
+            Optional<FlywayCommand> command = FlywayCommand.from(arg);
+            if(!command.isPresent()){
+                log.error("未知的指令：{}，无法进行数据库操作",args);
+                FlywayCommand.printCommand();
+                return;
+            }
+            upgrade.execCommand(command.get());
         }
-        Optional<FlywayCommand> command = FlywayCommand.from(args[0]);
-        if(!command.isPresent()){
-            log.error("参数{}不正确，无法进行数据库操作",args[0]);
-            FlywayCommand.printCommand();
-            return;
-        }
-        upgrade.execCommand(command.get());
     }
 }
