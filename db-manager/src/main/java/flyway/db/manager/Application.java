@@ -26,7 +26,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if(args.length==0){
-            log.warn("项目启动时默认执行升级脚本操作，如需进行其他操作，请参考以下指令");
+            log.warn("数据库操作，请参考以下指令");
             FlywayCommand.printCommand();
             return;
         }

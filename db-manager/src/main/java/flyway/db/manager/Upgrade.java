@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.flyway.FlywayProperties;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -18,8 +20,16 @@ public class Upgrade {
     @Autowired
     private Flyway flyway;
 
+    @Autowired
+    private FlywayProperties flywayProperties;
+
+    @Autowired
+    private DataSourceProperties dataSourceProperties;
+
     public void execCommand(FlywayCommand flywayCommand){
-        log.info("开始执行 flyway:{} 操作",flywayCommand);
+        log.info("=============> environment <=============");
+        operationInfo();
+        log.info("=============> 开始执行 flyway:{} 操作 <=============",flywayCommand);
         switch(flywayCommand){
             case CLEAN:flyway.clean();break;
             case VALIDATE:flyway.validate();break;
@@ -46,5 +56,22 @@ public class Upgrade {
                     log.info("version ===> {}",info.getVersion());
                 });
 
+    }
+
+    private void operationInfo(){
+        log.info("flyway properties:");
+        log.info("     version ===> {}",flyway.getBaselineVersion().getVersion());
+        log.info("     user ===> {}",flywayProperties.getUser());
+        log.info("     password ===> {}",flywayProperties.getPassword());
+        log.info("     url ===> {}",flywayProperties.getUrl());
+        flywayProperties.getInitSqls().stream().forEach(initSql -> log.info("     init-sql ===> {}",initSql));
+        flywayProperties.getLocations().stream().forEach(location -> log.info("     file-location ===> {}",location));
+        log.info("======================================================");
+
+        log.info("dataSource properties:");
+        log.info("     username ===> {}",dataSourceProperties.getUsername());
+        log.info("     password ===> {}",dataSourceProperties.getPassword());
+        log.info("     driver-class ===> {}",dataSourceProperties.getDriverClassName());
+        log.info("     url ===> {}",dataSourceProperties.getUrl());
     }
 }
